@@ -1,0 +1,48 @@
+#!/usr/bin/perl
+########################################################################
+#
+# $Id: gaIdke-post-commit 1.14 $
+# $IdBlockFurtherExpansion$
+#
+#  Copyright © 2016 John E Wulff <immediatec@gmail.com>
+#  SPDX-License-Identifier: MIT
+#
+# Filters and hooks to implement 'Automatic GIT $Id: Keyword Expansion'
+#
+# post-commit:
+#         Obtain the list of files which have been updated with an
+#         incremented <rev> in pre-commit from .gitSmudgeList. Execute
+#         'git checkout HEAD' to call smudge so the file in the working
+#         directory will have a $Id with an incremented <rev> followed
+#         by the commit hash, the author commit date and the author name.
+#         Also remove the backup file here.
+#
+#         In GIT versions prior to 2.6.6 'git checkout HEAD' would execute
+#         unconditionally and smudge the file. This no longer happens if
+#         the file to be checked out is identical to the GIT archive file
+#         and has a time stamp of the same second as the GIT archive file.
+#         For this reason the .gaidke backup is moved back to make it
+#         different to the committed file, which also removes it, because
+#         the checked out file overwrites it with the committed file.
+#
+#         If called via 'post-checkout', there is no backup file $path.gaidke.
+#         To smudge correctly for GIT >= 2.6.6, $path in working directory
+#         must be removed.
+#
+########################################################################
+
+if (open SMUDGE, ".gitSmudgeList") {	# ignore if pre-commit had no files with $Ids
+    $ga = $ENV{GAIDKE};			# environment variable GAIDKE can be set to v or V
+    while (<SMUDGE>) {
+	($path, $remainder) = split " ", $_, 2;
+	print STDERR "post-commit	$path\n" if $ga =~ m/\bv/i;	# v[erbose]
+	if (-f "$path.gaidke") {
+	    qx(mv -f "$path.gaidke" "$path");	# remove backup file when called from commit
+	} else {
+	    qx(rm -f "$path");		# allow checkout of committed file with smudge
+	}
+	qx(git checkout HEAD "$path");	# overwrite old file and smudge committed file
+    }
+    close SMUDGE;
+    qx(rm -f .gitSmudgeList);		# do only once at end of commit
+}

@@ -1,0 +1,39 @@
+#!/usr/bin/perl -p
+########################################################################
+#
+# $Id: gaIdke.clean 1.12 $
+# $IdBlockFurtherExpansion$
+#
+#  Copyright © 2016 John E Wulff <immediatec@gmail.com>
+#  SPDX-License-Identifier: MIT
+#
+# Filters and hooks to implement 'Automatic GIT $Id: Keyword Expansion'
+#
+# clean:  remove git SHA-1 hash, iso commit date and author name before
+#         the final $ of a correctly smudged $Id string, which is
+#         '$Id: <filename> <ver> <hash> ...$'.
+#         <filename> and <ver> can be any non white-space characters except
+#         <filename> and <ver> may not start with a $ to prevent a Heisenbug.
+#         <hash> is any length word consisting of lower case hex digits.
+#
+#         Only $Id strings which contain a white-space separated <hash> in
+#         the right place are cleaned. This makes sure that any $Id strings
+#         imported from legacy repositories are not modified.
+#
+#  NOTE:  'clean' can be run on its own output without changing anything.
+#
+# modified extensively from code by Kimmo R. M. Hovi, Fair Warning, Inc.
+#
+########################################################################
+
+BEGIN {
+    $allowIdExpansion = 1;			# allow $Id expansion initially
+}
+
+if (m/\$Id/ and $allowIdExpansion) {		# speed up scan by pre-selecting $Id lines
+    if (m/\$IdBlockFurtherExpansion\$/) {
+	$allowIdExpansion = 0;			# block $Id expansion for texts describing this feature
+    } else {
+	s/\$Id:\s+([^\$\s]\S*)\s+([^\$\s]\S*)\s+[\da-f]+\s+[^\$]*\$/\$Id: $1 $2 \$/;
+    }
+}
