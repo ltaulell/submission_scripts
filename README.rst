@@ -6,7 +6,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 
 :date: 2020-04-15
 :status: draft, documentation
-:version: $Id: README.rst 1.1 $
+:version: $Id: README.rst 1.2 $
 :licence: SPDX-License-Identifier: BSD-2-Clause
 
 Tested from ``Sun Grid Engine v6.2u5`` to ``Son of Grid Engine v8.1.9``.
@@ -27,15 +27,18 @@ Snipsets of options
 Use scratch, simple way:
 
 .. code-block:: bash
+
     ### Our scratch tree is... complicated
     SCRATCH="/scratch/E5N"
     ### subsitute $HOME by $SCRATCH in path
     SCRATCHDIR=${SGE_O_WORKDIR/"${HOME}"/"${SCRATCH}"}
     # then cp, cd, etc.
 
+
 Variant, test and create:
 
 .. code-block:: bash
+
     ### creation + verification global scratch
     if [[ -d "/scratch" ]]
     then
@@ -56,3 +59,4 @@ Variant, test and create:
         echo "/scratch not found, cannot create ${SCRATCHDIR}"
         exit 1
     fi
+
