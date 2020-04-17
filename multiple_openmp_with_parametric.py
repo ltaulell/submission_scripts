@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-# $Id: multiple_openmp_with_parametric.py 2877 $
+# $Id: multiple_openmp_with_parametric.py 2878 $
 # SPDX-License-Identifier: BSD-2-Clause
 
-""" submit a bunch of OpenMP jobs, with parametric file for each one, to SGE """
+""" submit a bunch of OpenMP jobs, with parametric file for each one, to SGE 
+
+    It is a commented example from a production code. Modify at will.
+
+"""
 
 __author__ = 'ltaulell'
 __credits__ = 'Pratyush Pranav <pratyuze AT gmail.com>'
@@ -79,9 +83,8 @@ for d in degrade:
             # ${JOB_NAME}
             '#$ -N job' + str(d) + '_' + str(i),
             # WARNING: One queue line at a time
-            '#$ -q CLG5218deb192*',
-            # '#$ -q E5-26*128*',
-            # '#$ -q h48-E5-2670deb128,h6-E5-2667v4deb128',
+            '#$ -q h48-E5-2670deb128,h6-E5-2667v4deb128',  # E5 cluster -> E5N scratch
+            # '#$ -q CLG5218deb192*',  # Lake cluster -> Lake scratch
             #
             # WARNING: core count MUST match queue's
             # See documentation on PSMN website

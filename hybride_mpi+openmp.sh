@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: hybride_mpi+openmp.sh 1.1 $
+# $Id: hybride_mpi+openmp.sh 1.2 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -36,14 +36,14 @@ module load GCC/7.2.0/OpenMPI/3.0.0
 ### force OpenMPI variables
 PREFIX="/applis/PSMN/debian9/software/Compiler/GCC/7.2.0/OpenMPI/3.0.0/"
 MPIRUN=${PREFIX}/bin/mpirun
-EXECDIR="/path/where/I/store/binaries/"
+EXECDIR="/path/where/I/store/binaries"
 
 ### OpenMP behavior
 export OMP_NUM_THREADS=8
 
 ### execute program
-# 2 mpi x 8 openMP = 16c / node
+# 2 mpi x 8 openMP = 16c / node (bi-socket 8 cores)
 
-${MPIRUN} -v -prefix ${PREFIX} -mca btl vader,openib,self -hostfile ${HOSTFILE} -np 2  -bind-to socket -npersocket 1  ./ProgPAR_OpenMP_MPI.c.exe
+${MPIRUN} -v -prefix ${PREFIX} -mca btl vader,openib,self -hostfile ${HOSTFILE} -np 2  -bind-to socket -npersocket 1  ${EXECDIR}/ProgPAR_OpenMP_MPI.c.exe
 
 #

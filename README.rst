@@ -5,11 +5,11 @@ PSMN SGE submission scripts
 TL;DR: bunch of submission scripts, some simple, some over-complicated, used in `Pôle Scientifique de Modélisation Numérique <http://www.ens-lyon.fr/PSMN/>`_ at ENS de Lyon.
 
 :date: 2020-04-15
-:status: draft, documentation
-:version: $Id: README.rst 1.2 $
+:status: documentation
+:version: $Id: README.rst 1.3 $
 :licence: SPDX-License-Identifier: BSD-2-Clause
 
-Tested from ``Sun Grid Engine v6.2u5`` to ``Son of Grid Engine v8.1.9``.
+Tested with ``Sun Grid Engine v6.2u5`` and ``Son of Grid Engine v8.1.9``.
 
 
 Documentation
@@ -20,8 +20,8 @@ All scripts refer to `PSMN's documentation <http://www.ens-lyon.fr/PSMN/doku.php
 ``qstat -g c`` on any front server will give an actual queue list.
 
 
-Snipsets of options
-===================
+Snipsets of options (bash scripts)
+==================================
 
 
 Use scratch, simple way:
