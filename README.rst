@@ -6,7 +6,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 
 :date: 2020-04-15
 :status: documentation
-:version: $Id: README.rst 1.3 $
+:version: $Id: README.rst 1.4 $
 :licence: SPDX-License-Identifier: BSD-2-Clause
 
 Tested with ``Sun Grid Engine v6.2u5`` and ``Son of Grid Engine v8.1.9``.
@@ -50,7 +50,7 @@ Variant, test and create:
         #    SCRATCH="/scratch/E5N"
         then
             SCRATCHDIR=${SGE_O_WORKDIR/"${HOME}"/"${SCRATCH}"}
-            mkdir -p ${SCRATCHDIR}
+            mkdir -p "${SCRATCHDIR}"
         else
             echo "/scratch not found, cannot create ${SCRATCHDIR}"
             exit 1
@@ -59,4 +59,24 @@ Variant, test and create:
         echo "/scratch not found, cannot create ${SCRATCHDIR}"
         exit 1
     fi
+    # then cp, cd, etc.
 
+Variant, more scratchs, based on ``$JOB_ID``:
+
+.. code-block:: bash
+
+    ## for Chimie users
+    if [[ -d "/scratch/Chimie" ]]
+    then
+        SCRATCHDIR="/scratch/Chimie/$USER/$JOB_ID/"
+    elif [[ -d "/scratch/Lake" ]]
+    then
+        SCRATCHDIR="/scratch/Lake/$USER/$JOB_ID/"
+    elif [[ -d "/scratch/E5N" ]]
+    then
+        SCRATCHDIR="/scratch/E5N/$USER/$JOB_ID/"
+    else
+        echo "/scratch not found, cannot create ${SCRATCHDIR}"
+        SCRATCHDIR="${SGE_O_WORKDIR}"
+    fi
+    # then cp, cd, etc.

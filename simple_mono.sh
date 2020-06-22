@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: simple_mono.sh 1.1 $
+# $Id: simple_mono.sh 1.2 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -18,7 +18,7 @@
 
 # go to submit directory
 # important, elsewhere, program is started from ~/
-cd ${SGE_O_WORKDIR}
+cd "${SGE_O_WORKDIR}" || exit "cannot cd to ${SGE_O_WORKDIR}"
 
 # init env (should be in ~/.profile)
 source /usr/share/lmod/lmod/init/bash

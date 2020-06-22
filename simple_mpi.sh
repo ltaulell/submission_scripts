@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: simple_mpi.sh 1.1 $
+# $Id: simple_mpi.sh 1.2 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -20,11 +20,11 @@
 #$ -m e
 
 # given by SGE
-HOSTFILE=${TMPDIR}/machines
+HOSTFILE="${TMPDIR}/machines"
 
 # go to submission directory
 # important, elsewhere, program is started from ~/
-cd ${SGE_O_WORKDIR}
+cd "${SGE_O_WORKDIR}" || exit "cannot cd to ${SGE_O_WORKDIR}"
 
 # init env (should be in ~/.profile)
 source /usr/share/lmod/lmod/init/bash
@@ -35,11 +35,11 @@ module load GCC/7.2.0/OpenMPI/3.0.0
 
 ### force OpenMPI variables
 PREFIX="/applis/PSMN/debian9/software/Compiler/GCC/7.2.0/OpenMPI/3.0.0/"
-MPIRUN=${PREFIX}/bin/mpirun
+MPIRUN="${PREFIX}/bin/mpirun"
 EXECDIR="/path/where/I/store/binaries/"
 
 ### execute program
 
-$MPIRUN -v -x LD_LIBRARY_PATH -mca btl vader,openib,self -hostfile ${HOSTFILE} -np ${NSLOTS} ${EXECDIR}/SommeVecVecPAR.exe
+"${MPIRUN}" -v -x LD_LIBRARY_PATH -mca btl vader,openib,self -hostfile "${HOSTFILE}" -np "${NSLOTS}" "${EXECDIR}"/SommeVecVecPAR.exe
 
 #

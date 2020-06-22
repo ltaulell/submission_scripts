@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: simple_mono_+_scratch.sh 1.1 $
+# $Id: simple_mono_+_scratch.sh 1.2 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -18,7 +18,7 @@
 
 # go to submit directory
 # important, elsewhere, program is started from ~/
-cd ${SGE_O_WORKDIR}
+cd "${SGE_O_WORKDIR}" || exit "cannot cd to ${SGE_O_WORKDIR}"
 
 # init env (should be in ~/.profile)
 source /usr/share/lmod/lmod/init/bash
@@ -38,22 +38,22 @@ echo "SCRATCHDIR=${SCRATCHDIR}"
 ### create new workdir in /scratch
 if [[ ! -d "${SCRATCHDIR}" ]]
 then
-   /bin/mkdir -p ${SCRATCHDIR}
+   /bin/mkdir -p "${SCRATCHDIR}"
 fi
 
 ### copy workfiles into scratch workdir (example: all of it)
-/bin/cp ${SGE_O_WORKDIR}/* ${SCRATCHDIR}/
+/bin/cp "${SGE_O_WORKDIR}/*" "${SCRATCHDIR}/"
 
 ### go to scratch working directory
-cd ${SCRATCHDIR}
+cd "${SCRATCHDIR}" || exit "cannot cd to ${SCRATCHDIR}"
 
 ### execute program
 mypython3_script.py < myparam.txt > myoutput.log
 
 ### retrieve results into $HOME
-/bin/cp ${SCRATCHDIR}/myoutput.log ${SGE_O_WORKDIR}/
+/bin/cp "${SCRATCHDIR}/myoutput.log" "${SGE_O_WORKDIR}/"
 
 ### cleanup scratch workdir
-rm -fr ${SCRATCHDIR}
+rm -fr "${SCRATCHDIR}"
 
 #

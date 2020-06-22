@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: simple_openmp.sh 1.1 $
+# $Id: simple_openmp.sh 1.2 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -21,7 +21,7 @@
 
 # go to submission directory
 # important, elsewhere, program is started from ~/
-cd ${SGE_O_WORKDIR}
+cd "${SGE_O_WORKDIR}" || exit "cannot cd to ${SGE_O_WORKDIR}"
 
 # init env (should be in ~/.profile)
 source /usr/share/lmod/lmod/init/bash
@@ -29,7 +29,7 @@ source /usr/share/lmod/lmod/init/bash
 ### configure execution environment
 module purge
 module load GCC/7.2.0
-#export OMP_NUM_THREADS=${NSLOTS}  # full node
+#export OMP_NUM_THREADS="${NSLOTS}"  # full node
 export OMP_NUM_THREADS=8  # half cpus, full mem
 
 ### execute program
