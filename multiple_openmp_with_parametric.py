@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-# $Id: multiple_openmp_with_parametric.py 2878 $
+# $Id: multiple_openmp_with_parametric.py 2879 $
 # SPDX-License-Identifier: BSD-2-Clause
 
 """ submit a bunch of OpenMP jobs, with parametric file for each one, to SGE 
@@ -90,13 +90,13 @@ for d in degrade:
             # See documentation on PSMN website
             '#$ -pe openmp32 32',
             #
-            # SGE outputs will be in ${SGE_O_WORKDIR}/${JOB_NAME}.[e,o,pe,po]${JOB_ID} by default
+            # SGE outputs will be in "${SGE_O_WORKDIR}"/"${JOB_NAME}".[e,o,pe,po]"${JOB_ID}" by default
             '#$ -e ' + outdir + 'degrade_' + str(d) + '/e_' + str(i),
             '#$ -o ' + outdir + 'degrade_' + str(d) + '/o_' + str(i),
             '#$ -m a',
             '#$ -M ' + email,
             '# start job from the directory it was submitted',
-            'cd ${SGE_O_WORKDIR}',
+            'cd "${SGE_O_WORKDIR}"',
             # Add $ENV preparation, if needed:
             # 'source ~/.bashrc',
             # 'module load Python/3.6.1',

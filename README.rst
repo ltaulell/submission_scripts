@@ -6,7 +6,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 
 :date: 2020-04-15
 :status: documentation
-:version: $Id: README.rst 1.4 $
+:version: $Id: README.rst 1.5 $
 :licence: SPDX-License-Identifier: BSD-2-Clause
 
 Tested with ``Sun Grid Engine v6.2u5`` and ``Son of Grid Engine v8.1.9``.
@@ -30,7 +30,7 @@ Use scratch, simple way:
 
     ### Our scratch tree is... complicated
     SCRATCH="/scratch/E5N"
-    ### subsitute $HOME by $SCRATCH in path
+    ### subsitute $HOME by $SCRATCH in $SGE_O_WORKDIR path
     SCRATCHDIR=${SGE_O_WORKDIR/"${HOME}"/"${SCRATCH}"}
     # then cp, cd, etc.
 
@@ -71,12 +71,16 @@ Variant, more scratchs, based on ``$JOB_ID``:
         SCRATCHDIR="/scratch/Chimie/$USER/$JOB_ID/"
     elif [[ -d "/scratch/Lake" ]]
     then
+        # default on Lake cluster
         SCRATCHDIR="/scratch/Lake/$USER/$JOB_ID/"
     elif [[ -d "/scratch/E5N" ]]
     then
+        # default on E5 cluster
         SCRATCHDIR="/scratch/E5N/$USER/$JOB_ID/"
     else
         echo "/scratch not found, cannot create ${SCRATCHDIR}"
         SCRATCHDIR="${SGE_O_WORKDIR}"
     fi
     # then cp, cd, etc.
+
+

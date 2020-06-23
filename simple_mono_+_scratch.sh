@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: simple_mono_+_scratch.sh 1.2 $
+# $Id: simple_mono_+_scratch.sh 1.3 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -18,7 +18,7 @@
 
 # go to submit directory
 # important, elsewhere, program is started from ~/
-cd "${SGE_O_WORKDIR}" || exit "cannot cd to ${SGE_O_WORKDIR}"
+cd "${SGE_O_WORKDIR}" || { echo "cannot cd to ${SGE_O_WORKDIR}"; exit 1; }
 
 # init env (should be in ~/.profile)
 source /usr/share/lmod/lmod/init/bash
@@ -45,7 +45,7 @@ fi
 /bin/cp "${SGE_O_WORKDIR}/*" "${SCRATCHDIR}/"
 
 ### go to scratch working directory
-cd "${SCRATCHDIR}" || exit "cannot cd to ${SCRATCHDIR}"
+cd "${SCRATCHDIR}" || { echo "cannot cd to ${SCRATCHDIR}"; exit 1; }
 
 ### execute program
 mypython3_script.py < myparam.txt > myoutput.log
