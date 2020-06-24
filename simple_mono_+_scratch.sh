@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: simple_mono_+_scratch.sh 1.3 $
+# $Id: simple_mono_+_scratch.sh 1.4 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -24,10 +24,10 @@ cd "${SGE_O_WORKDIR}" || { echo "cannot cd to ${SGE_O_WORKDIR}"; exit 1; }
 source /usr/share/lmod/lmod/init/bash
 
 ### configure execution environment
-module purge
+### module purge  # if a very clean env is needed
 module load Python/3.6.1
 
-### definition SCRATCHDIR
+### define SCRATCHDIR
 ### refer to PSMN cluster's documentation for scratchs list
 SCRATCH="/scratch/E5N"
 ### subsitute $HOME by $SCRATCH in path
@@ -42,7 +42,7 @@ then
 fi
 
 ### copy workfiles into scratch workdir (example: all of it)
-/bin/cp "${SGE_O_WORKDIR}/*" "${SCRATCHDIR}/"
+/bin/cp -- "${SGE_O_WORKDIR}/*" "${SCRATCHDIR}/"
 
 ### go to scratch working directory
 cd "${SCRATCHDIR}" || { echo "cannot cd to ${SCRATCHDIR}"; exit 1; }
