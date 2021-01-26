@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: simple_mono_+_scratch.sh 1.4 $
+# $Id: simple_mono_+_scratch.sh 1.5 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -48,7 +48,7 @@ fi
 cd "${SCRATCHDIR}" || { echo "cannot cd to ${SCRATCHDIR}"; exit 1; }
 
 ### execute program
-mypython3_script.py < myparam.txt > myoutput.log
+python3 mypython3_script.py < myparam.txt > myoutput.log
 
 ### retrieve results into $HOME
 /bin/cp "${SCRATCHDIR}/myoutput.log" "${SGE_O_WORKDIR}/"

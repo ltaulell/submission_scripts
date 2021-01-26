@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: simple_mono.sh 1.3 $
+# $Id: simple_mono.sh 1.4 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -28,6 +28,6 @@ module purge
 module load Python/3.6.1
 
 ### execute program
-mypython3_script.py < myparam.txt > myoutput.log
+python3 mypython3_script.py < myparam.txt > myoutput.log
 
 #

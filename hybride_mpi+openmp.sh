@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: hybride_mpi+openmp.sh 1.5 $
+# $Id: hybride_mpi+openmp.sh 1.6 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -31,7 +31,7 @@ source /usr/share/lmod/lmod/init/bash
 
 ### configure environment
 module purge
-module load GCC/7.2.0/OpenMPI/3.0.0 
+module load GCC/7.2.0/OpenMPI/3.0.0
 
 ### force OpenMPI variables
 ### use module show Module/Version for more info
