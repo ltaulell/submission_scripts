@@ -14,5 +14,5 @@ cd "${SGE_O_WORKDIR}"
 
 hostname  # dans STDOUT -> ${JOB_NAME}.o${JOB_ID}
 
-python3 test_log5+sge.py -d 
+python3 p3+sge+log.py -d 
 
