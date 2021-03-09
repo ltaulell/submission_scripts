@@ -12,7 +12,7 @@ module load Python/3.8.3
 
 cd "${SGE_O_WORKDIR}"
 
-hostname  # dans STDOUT -> ${JOB_NAME}.o${JOB_ID}
+hostname  # to STDOUT -> ${JOB_NAME}.o${JOB_ID}
 
-python3 p3+sge+log.py -d 
+python3 python_test_job.py -d 
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # coding: utf-8
 #
-# $Id: p3+sge+log.py 1498 $
+# $Id: python_test_job.py 1499 $
 # SPDX-License-Identifier: BSD-2-Clause
 
 """
-test logging in SGE context: SGE will log, no matter what.
+test python logging in SGE context: SGE will log, no matter what.
 
 print() -> STDOUT -> SGE.stdout -> ${JOB_NAME}.o${JOB_ID}
 
