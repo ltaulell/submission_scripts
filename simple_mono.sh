@@ -1,5 +1,6 @@
 #!/bin/bash
-# $Id: simple_mono.sh 1.4 $
+#
+## $Id: simple_mono.sh 1.5 $
 #
 ### SGE variables begin with #$
 ### job's shell

@@ -9,7 +9,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 
 :date: 2020-04-15
 :status: documentation
-:version: $Id: README.rst 1.7 $
+:version: $Id: README.rst 1.8 $
 :licence: SPDX-License-Identifier: BSD-2-Clause
 
 Tested with ``Sun Grid Engine v6.2u5`` and ``Son of Grid Engine v8.1.9``.
@@ -45,13 +45,10 @@ Variant, test and create:
     ### creation + verification global scratch
     if [[ -d "/scratch" ]]
     then
-        ### for X5 scratch / X5* queues
-        if [[ -e "/scratch/X5/x5570-gfs-scratch" ]]
-            SCRATCH="/scratch/X5"
-        ### for E5N scratch / E5* queues
-        # if [[ -e "/scratch/E5N/E5N-gfs-scratch" ]]
-        #    SCRATCH="/scratch/E5N"
+        ### for E5N scratch / E5 cluster
+        if [[ -e "/scratch/E5N/E5N-gfs-scratch" ]]
         then
+            SCRATCH="/scratch/E5N"
             SCRATCHDIR=${SGE_O_WORKDIR/"${HOME}"/"${SCRATCH}"}
             mkdir -p "${SCRATCHDIR}"
         else
@@ -68,7 +65,7 @@ Another variant, more scratchs, based on ``$JOB_ID``:
 
 .. code-block:: bash
 
-    ## for Chimie users
+    ## for Chimie users (Lake cluster)
     if [[ -d "/scratch/Chimie" ]]
     then
         SCRATCHDIR="/scratch/Chimie/${USER}/${JOB_ID}/"
@@ -82,11 +79,6 @@ Another variant, more scratchs, based on ``$JOB_ID``:
     elif [[ -d "/scratch/E5N" ]]
     then
         SCRATCHDIR="/scratch/E5N/${USER}/${JOB_ID}/"
-
-    # default on X5 cluster
-    elif [[ -d "/scratch/X5" ]]
-    then
-        SCRATCHDIR="/scratch/X5/${USER}/${JOB_ID}/"
 
     # default to SGE_O_WORKDIR
     else

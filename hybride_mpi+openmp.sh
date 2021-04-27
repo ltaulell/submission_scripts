@@ -1,5 +1,6 @@
 #!/bin/bash
-# $Id: hybride_mpi+openmp.sh 1.6 $
+#
+## $Id: hybride_mpi+openmp.sh 1.7 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -10,7 +11,7 @@
 #$ -q h6-E5-2667v4deb128
 ### parallel environment & cpu numbers (NSLOTS)
 ### in this example, asking for two nodes
-#$ -pe openmp16 32
+#$ -pe mpi16_debian 32
 ### load user environment for SGE
 #$ -cwd
 ### export ENV to all exec_nodes
@@ -43,7 +44,7 @@ EXECDIR="/path/where/I/store/my/binaries"
 export OMP_NUM_THREADS="8"
 
 ### execute program
-# 2 mpi x 8 openMP = 16c / node (bi-socket 8 cores)
+# 2 mpi x 8 openMP x 2 nodes = 16c / node (bi-socket 8 cores) / 2 nodes
 
 "${MPIRUN}" -v -prefix "${PREFIX}" -mca btl vader,openib,self -hostfile "${HOSTFILE}" -np 2 -bind-to socket -npersocket 1  "${EXECDIR}"/ProgPAR_OpenMP_MPI.c.exe
 

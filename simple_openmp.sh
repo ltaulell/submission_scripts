@@ -1,5 +1,6 @@
 #!/bin/bash
-# $Id: simple_openmp.sh 1.3 $
+#
+## $Id: simple_openmp.sh 1.4 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -9,7 +10,7 @@
 ### queue(s) (a changer)
 #$ -q h6-E5-2667v4deb128
 ### parallel environment & cpu numbers (NSLOTS)
-### ask for full node, regardless of real CPU usage
+### asking for full node, regardless of real CPU usage
 #$ -pe openmp16 16
 ### load user environment for SGE
 #$ -cwd

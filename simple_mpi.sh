@@ -1,5 +1,6 @@
 #!/bin/bash
-# $Id: simple_mpi.sh 1.3 $
+#
+## $Id: simple_mpi.sh 1.4 $
 #
 ### SGE variables begin with #$
 ### job's shell
@@ -10,7 +11,7 @@
 #$ -q h6-E5-2667v4deb128
 ### parallel environment & cpu numbers (NSLOTS)
 ### in this example, asking for two nodes
-#$ -pe openmp16 32
+#$ -pe mpi16_debian 32
 ### load user environment for SGE
 #$ -cwd
 ### export ENV to all exec_nodes
