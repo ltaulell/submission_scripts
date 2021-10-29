@@ -1,6 +1,6 @@
-=======================
-PSMN submission scripts
-=======================
+=============================
+PSMN Slurm submission scripts
+=============================
 
 TL;DR: bunch of submission scripts, some simple, some over-complicated, used in `PSMN <http://www.ens-lyon.fr/PSMN/>`_ at ENS de Lyon.
 
@@ -12,9 +12,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 :version: $Id: README.rst 1.10 $
 :licence: SPDX-License-Identifier: BSD-2-Clause
 
-New clusters are running with `Slurm <Slurm>`_.
-
-Old clusters are running with `GridEngine <GridEngine/>`_. 
+Using ``slurm-wlm 20.11.4``.
 
 
 Documentation
@@ -22,4 +20,11 @@ Documentation
 
 All scripts refer to `PSMN's documentation <http://www.ens-lyon.fr/PSMN/doku.php?id=documentation:accueil>`_ which will always be ahead of this repository.
 
+``sinfo -lN`` on any front server will give an actual partition status.
+
+
+Snippets of options (bash scripts)
+==================================
+
+TODO
 
