@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-## $Id: simple_mono_+_scratch.sh 1.6 $
+## $Id: simple_mono_+_scratch.sh 1.7 $
 #
 ### SGE variables begin with #$
 ### job's shell

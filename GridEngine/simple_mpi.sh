@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-## $Id: hybride_mpi+openmp.sh 1.7 $
+## $Id: simple_mpi.sh 1.5 $
 #
 ### SGE variables begin with #$
 ### job's shell
 #$ -S /bin/bash
 ### JOB_NAME (to change)
-#$ -N example_openMPI+OpenMP
+#$ -N example_openMPI
 ### queue(s) (to change)
 #$ -q h6-E5-2667v4deb128
 ### parallel environment & cpu numbers (NSLOTS)
@@ -32,20 +32,15 @@ source /usr/share/lmod/lmod/init/bash
 
 ### configure environment
 module purge
-module load GCC/7.2.0/OpenMPI/3.0.0
+module load GCC/7.2.0/OpenMPI/3.0.0 
 
 ### force OpenMPI variables
-### use module show Module/Version for more info
 PREFIX="/applis/PSMN/debian9/software/Compiler/GCC/7.2.0/OpenMPI/3.0.0/"
 MPIRUN="${PREFIX}/bin/mpirun"
-EXECDIR="/path/where/I/store/my/binaries"
-
-### OpenMP behavior
-export OMP_NUM_THREADS="8"
+EXECDIR="/path/where/I/store/binaries/"
 
 ### execute program
-# 2 mpi x 8 openMP x 2 nodes = 16c / node (bi-socket 8 cores) / 2 nodes
 
-"${MPIRUN}" -v -prefix "${PREFIX}" -mca btl vader,openib,self -hostfile "${HOSTFILE}" -np 2 -bind-to socket -npersocket 1  "${EXECDIR}"/ProgPAR_OpenMP_MPI.c.exe
+"${MPIRUN}" -v -x LD_LIBRARY_PATH -mca btl vader,openib,self -hostfile "${HOSTFILE}" -np "${NSLOTS}" "${EXECDIR}"/SommeVecVecPAR.exe
 
 #
