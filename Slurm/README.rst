@@ -20,11 +20,43 @@ Documentation
 
 All scripts refer to `PSMN's documentation <http://www.ens-lyon.fr/PSMN/doku.php?id=documentation:accueil>`_ which will always be ahead of this repository.
 
-``sinfo -lN`` on any front server will give an actual partition status.
+``sinfo -l`` or ``sinfo -lNe`` on any front server will give an actual partition status.
 
 
 Snippets of options (bash scripts)
 ==================================
 
-TODO
+Submit using ``sbatch test.sh``.
+
+
+Simpliest script
+----------------
+
+.. code-block:: bash
+
+    #!/bin/bash
+    #SBATCH --job-name=test
+
+    python3 my_prog.py
+
+
+Within default partition, default duration and python3 from system defaults.
+
+Simplest script
+---------------
+
+.. code-block:: bash
+
+    #!/bin/bash
+    #SBATCH --job-name=test
+    #SBATCH --partition=E5
+    #SBATCH --cpus-per-task=1           # -n
+    #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
+    
+    echo $ENV >> env.test
+
+Asking for 1 core, 10 minutes, on partiton E5.
+
+
+**TODO**
 
