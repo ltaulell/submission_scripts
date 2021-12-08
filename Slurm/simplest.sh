@@ -4,5 +4,5 @@
 #SBATCH --cpus-per-task=1           # -n
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
 
-echo $ENV > env-E5.txt
+echo "${ENV}" > env-E5.txt
 

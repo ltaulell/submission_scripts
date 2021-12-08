@@ -53,9 +53,54 @@ Simplest script
     #SBATCH --cpus-per-task=1           # -n
     #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
     
-    echo $ENV >> env.test
+    echo "${ENV}" >> env.test
 
-Asking for 1 core, 10 minutes, on partiton E5.
+Asking for 1 core, 10 minutes, on partiton E5, shared node.
+
+
+One core, one node exclusive
+----------------------------
+
+.. code-block:: bash
+
+    #!/bin/bash
+    #SBATCH --job-name=test
+    #SBATCH --partition=E5
+    #SBATCH --cpus-per-task=1           # -n
+    #SBATCH --ntasks=1
+    #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
+    #SBATCH --nodes=1                   # -N (exclusive mode)
+    
+    myappli < input > output
+
+
+Asking for 1 core, 10 minutes, E5 partition, 1 node exclusive.
+
+
+Environment Slurm variables
+---------------------------
+
+There's a bunch of available slurm variables, within your job environment:
+
++----------------------+--------------------------+
+| slurm variable       | whatis                   |
++======================+==========================+
+| $SLURM_JOB_ID        | ID given by slurmctl     |
++----------------------+--------------------------+
+| $SLURM_JOB_NAME      | sbatch --job-name        |
++----------------------+--------------------------+
+| $SLURM_JOB_USER      | $USER                    |
++----------------------+--------------------------+
+| $SLURM_SUBMIT_DIR    | where you submitted from |
++----------------------+--------------------------+
+| $SLURM_NODELIST      | node(s) list of job      |
++----------------------+--------------------------+
+| $SLURM_NPROCS        | number of core(s) of job |
++----------------------+--------------------------+
+| $SLURM_JOB_PARTITION | partition name           |
++----------------------+--------------------------+
+
+
 
 
 **TODO**
