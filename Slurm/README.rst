@@ -20,7 +20,7 @@ Documentation
 
 All scripts refer to `PSMN's documentation <http://www.ens-lyon.fr/PSMN/doku.php?id=documentation:accueil>`_ which will always be ahead of this repository.
 
-``sinfo -l`` or ``sinfo -lNe`` on any front server will give an actual partition status.
+``sinfo -l`` or ``sinfo -lNe`` on any front server will give an **actual partition status and names**.
 
 
 Snippets of options (bash scripts)

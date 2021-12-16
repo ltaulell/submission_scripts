@@ -8,6 +8,7 @@
 cd "${SLURM_SUBMIT_DIR}"
 
 # scratch example
+# /!\ ${SLURM_JOB_PARTITION} only works on Master Partitions, not sub-partitions
 
 if [[ -d "/scratch" ]]
 then
@@ -26,8 +27,12 @@ fi
 
 OUTFILE="${SCRATCHDIR}/${SLURM_JOB_NAME}.${SLURM_JOB_ID}.out"
 
-echo "${SLURM_JOB_ID} - ${SLURM_JOB_NAME} / ${SLURM_JOB_USER}" >> "${OUTFILE}"
+# output a lot of things
+
+echo "${SLURM_JOB_ID} - ${SLURM_JOB_NAME} by ${SLURM_JOB_USER}" >> "${OUTFILE}"
 echo "${SLURM_SUBMIT_DIR} on ${SLURM_NODELIST}" >> "${OUTFILE}"
+echo "from ${SLURM_JOB_PARTITION}" >> "${OUTFILE}"
+echo "writing into ${OUTFILE}" >> "${OUTFILE}"
 echo "--------" >> "${OUTFILE}"
 
 sleep 600s
