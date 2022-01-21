@@ -9,7 +9,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 
 :date: 2021-10-29
 :status: documentation
-:version: $Id: README.rst 1.10 $
+:version: $Id: README.rst 1.11 $
 :licence: SPDX-License-Identifier: BSD-2-Clause
 
 Using ``slurm-wlm 20.11.4``.
@@ -101,7 +101,4 @@ There's a bunch of available slurm variables, within your job environment:
 +----------------------+--------------------------+
 
 
-
-
-**TODO**
 
