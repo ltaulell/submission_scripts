@@ -7,5 +7,6 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
 
-echo "${ENV}" > env-E5.txt
+cd $SLURM_SUBMIT_DIR
+mpirun -np $SLURM_NTASKS mybin < input > output
 

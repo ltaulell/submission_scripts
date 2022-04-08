@@ -7,7 +7,7 @@
 
 cd "${SLURM_SUBMIT_DIR}"
 
-# scratch example
+# this is a scratch example
 # /!\ ${SLURM_JOB_PARTITION} only works on Master Partitions, not sub-partitions
 
 if [[ -d "/scratch" ]]
