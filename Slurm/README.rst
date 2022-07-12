@@ -61,6 +61,8 @@ Asking for 1 core, 10 minutes, on partiton E5, shared node.
 One core, one node exclusive
 ----------------------------
 
+hence, all RAM (of the node).
+
 .. code-block:: bash
 
     #!/bin/bash
