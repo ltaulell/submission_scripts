@@ -95,7 +95,9 @@ There's a bunch of available slurm variables, within your job environment:
 +--------------------------+-------------------------------------------------------+
 | $SLURM_SUBMIT_DIR        | where you submitted from                              |
 +--------------------------+-------------------------------------------------------+
-| $SLURM_NODELIST          | node(s) list of job                                   |
+| $SLURM_NODELIST          | node(s) list allocated to job                         |
++--------------------------+-------------------------------------------------------+
+| $SLURMD_NODENAME         | node running the job                                  |
 +--------------------------+-------------------------------------------------------+
 | $SLURM_NPROCS            | number of core(s) of job                              |
 +--------------------------+-------------------------------------------------------+
