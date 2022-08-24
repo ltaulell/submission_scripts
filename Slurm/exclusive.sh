@@ -7,5 +7,5 @@
 #SBATCH --nodes=2                   # -N (2 nodes, exclusive way)
 #SBATCH --exclusive                 # exclusive mode, ie: all 2 nodes will be mine
 
-echo "${ENV}" > env-E5.txt
+env > env-E5.txt
 

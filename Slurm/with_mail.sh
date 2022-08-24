@@ -9,5 +9,5 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=user@example.com
 
-echo "${ENV}" > env-E5.txt
+env > env-E5.txt
 

@@ -8,5 +8,5 @@
 #SBATCH --mem=500                   # global to node, in MiB
 # SBATCH --mem=2G                   # global to node, in GiB, ignored
 
-echo "${ENV}" > env-E5.txt
+env > env-E5.txt
 

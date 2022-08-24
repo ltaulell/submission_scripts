@@ -12,5 +12,5 @@
 # %x = jobname
 # %j = jobid
 
-echo "${ENV}" > env-E5.txt
+env > env-E5.txt
 

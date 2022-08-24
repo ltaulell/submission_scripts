@@ -8,5 +8,5 @@
 #SBATCH --exclusive                 # exclusive mode
 #SBATCH --exclude=c82gluster1       # nobody like gluster1, he compute backward
 
-echo "${ENV}" > env-E5.txt
+env > env-E5.txt
 

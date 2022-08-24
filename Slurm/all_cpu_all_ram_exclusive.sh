@@ -7,5 +7,5 @@
 #SBATCH --nodes=1                   # eq: I want this node for myself alone
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
 
-echo "${ENV}" > env-E5.txt
+env > env-E5.txt
 
