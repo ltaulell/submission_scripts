@@ -11,7 +11,15 @@
 # SBATCH --ntasks-per-node=8            # SLURM_NTASKS_PER_NODE
 
 # actual compute script
-""" parametric exploration, with a sequential binary """
+""" parametric exploration, with a sequential binary
+
+either --ntasks (env: SLURM_NTASKS) or --ntasks-per-node (env: SLURM_NTASKS_PER_NODE)
+
+"srun --ntasks 1 {command} &" : one task for each srun, in the same sbatch.
+
+Note the trailing "&", you NEED it
+
+"""
 
 import os
 import sys
