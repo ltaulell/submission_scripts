@@ -5,7 +5,7 @@
 #SBATCH --job-name=pytest
 #SBATCH --partition=Lake
 #SBATCH --cpus-per-task=1
-#SBATCH --ntasks=8            # Lake has 8 cores/node
+#SBATCH --ntasks=8            # Lake has 32 cores/node
 #SBATCH --nodes=1
 #SBATCH --exclusive           # exclusive mode, ie: this node will be mine
 
