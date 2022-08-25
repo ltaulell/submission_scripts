@@ -7,7 +7,9 @@
 #SBATCH --nodes=1
 #SBATCH --exclusive
 
+# shellcheck disable=SC1091
 source /usr/share/lmod/lmod/init/bash
+
 ml use /applis/PSMN/debian11/Lake/modules/all/
 ml load GCC/11.2.0
 
@@ -19,8 +21,11 @@ echo "${SLURM_NODELIST}"
 
 for i in $(seq "$SLURM_NTASKS");
 do
-    param="-C 1 -m 1 -i 1 -M 100 -s 120"
+    RAM=$(("${i}" * 100))
+    param="-C 1 -m 1 -i 1 -M ${RAM} -s 120"
     echo "$i : ${BIN} ${param}"
+
+    # shellcheck disable=SC2086
     srun --ntasks 1 ${BIN} ${param} &
 done
 
