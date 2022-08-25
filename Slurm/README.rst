@@ -53,7 +53,7 @@ Simplest script
     #SBATCH --cpus-per-task=1           # -n
     #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
     
-    echo "${ENV}" >> env.test
+    env > env.test
 
 Asking for 1 core, 10 minutes, on partiton E5, shared node.
 
