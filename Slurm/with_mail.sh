@@ -5,9 +5,9 @@
 #SBATCH --ntasks=1
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
 #
-#SBATCH --mail-type=ALL
+#SBATCH --mail-type=BEGIN,END,FAIL
+# please *NEVER* use the 'ALL' flag, as it will overload mail servers
 #SBATCH --mail-user=user@example.com
-# SBATCH --mail-type=BEGIN,END,FAIL
 
 env > env-E5.txt
 
