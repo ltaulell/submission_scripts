@@ -2,8 +2,8 @@
 #SBATCH --job-name=test
 #SBATCH --partition=E5-GPU
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=1
-#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=2
+#SBATCH --gres=gpu:2
 #SBATCH --cpus-per-gpu=1
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
 #
@@ -14,7 +14,11 @@
 # %x = jobname
 # %j = jobid
 
-env > env-E5-GPU.txt
+env
 echo "--- *** --- *** ---"
 nvidia-smi
+
+# usable GPU devices will be listed (comma separated list) in both
+# CUDA_VISIBLE_DEVICES and GPU_DEVICE_ORDINAL, if you need their id (0 or 1)
+
 
