@@ -43,11 +43,11 @@ cd "${SCRATCHDIR}" || { echo "cannot cd to ${SCRATCHDIR}" ; exit 1; }
 #/usr/bin/time ${Gaussian} < ${job}.${ExtIn} > ${HOMEDIR}/${job}.${ExtOut}  # debug
 "${Gaussian}" < "${job}.${ExtIn}" > "${HOMEDIR}/${job}.${ExtOut}"
 
-# save chk
-if [[ -s "$NChk" ]]
+# check, compress and save chk
+if [[ -s "${SCRATCHDIR}/$NChk" ]]
 then
-    gzip -9 "$NChk"
-    cp "${SCRATCHDIR}/${NChk}.gz" "${HOMEDIR}/"
+    gzip -9 "${SCRATCHDIR}/$NChk"
+    cp "${SCRATCHDIR}/${NChk}.gz" "${HOMEDIR}/${NChk}.${SLURM_JOB_ID}.gz"
 fi
 
 # final cleanup (commented during debug)
