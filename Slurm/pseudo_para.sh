@@ -25,7 +25,7 @@ BIN="stressapptest"
 # where am I running
 echo "${SLURM_NODELIST}"
 
-# distribute sequential tasks as concurrent jobs one the same compute node
+# distribute sequential tasks as concurrent jobs on the same compute node
 for i in $(seq "$SLURM_NTASKS");  # related to SBATCH --ntasks=4
 # for i in $(seq "$SLURM_NTASKS_PER_NODE");  # related to SBATCH --ntasks-per-node=4
 do
