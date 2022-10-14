@@ -21,6 +21,6 @@ mkdir -p "${SCRATCHDIR}"
 mpirun -np "${SLURM_NTASKS}" -mca btl vader,openib,self ./mybin < input > "${SCRATCHDIR}/output"
 
 # example 2, Intel MPI
-mpiexec -n "${SLURM_NPROCS}" -bootstrap ssh ./mybin -restart="${SLURM_SUBMIT_DIR}/input" -scratch="${SCRATCHDIR}"
+mpiexec -n "${SLURM_NPROCS}" -bootstrap slurm ./mybin -restart="${SLURM_SUBMIT_DIR}/input" -scratch="${SCRATCHDIR}"
 
 # don't forget to cleanup/erase "${SCRATCHDIR}" after successfull run
