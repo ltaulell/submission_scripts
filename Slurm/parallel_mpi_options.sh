@@ -14,13 +14,14 @@ SCRATCHDIR="/scratch/E5N/${SLURM_JOB_USER}/${SLURM_JOB_ID}"
 mkdir -p "${SCRATCHDIR}"
 
 # See https://slurm.schedmd.com/mpi_guide.html
-# multiples ways of using multiples MPI
-# added some usefull options, sometimes
+# there is multiples ways of using multiples MPI
+# added some usefull (sometime) options
 
 # example 1, OpenMPI
 mpirun -np "${SLURM_NTASKS}" -mca btl vader,openib,self ./mybin < input > "${SCRATCHDIR}/output"
 
 # example 2, Intel MPI
-mpiexec -n "${SLURM_NPROCS}" -bootstrap slurm ./mybin -restart="${SLURM_SUBMIT_DIR}/input" -scratch="${SCRATCHDIR}"
+# proper PSMN's $USER/.ssh/config is MANDATORY
+mpiexec -n "${SLURM_NPROCS}" -bootstrap ssh ./mybin -restart="${SLURM_SUBMIT_DIR}/input" -scratch="${SCRATCHDIR}"
 
 # don't forget to cleanup/erase "${SCRATCHDIR}" after successfull run
