@@ -71,7 +71,8 @@ hence, all RAM (of the node).
     #SBATCH --cpus-per-task=1           # -n
     #SBATCH --ntasks=1
     #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
-    #SBATCH --nodes=1                   # -N (exclusive mode)
+    #SBATCH --nodes=1                   # -N (number of node(s))
+    #SBATCH --exclusive                 # exclusive mode
     
     myappli < input > output
 
