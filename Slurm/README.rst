@@ -9,7 +9,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 .. meta::
 	:date: 2021-10-29
 	:status: documentation
-	:version: $Id: README.rst 1.12 $
+	:version: $Id: README.rst 1.13 $
 	:licence: SPDX-License-Identifier: BSD-2-Clause
 
 Using ``slurm-wlm 20.11.4``.
@@ -51,17 +51,18 @@ Simplest script
     #SBATCH --job-name=test
     #SBATCH --partition=E5
     #SBATCH --cpus-per-task=1           # -n
+    #SBATCH --mem-per-cpu=500           # in MiB
     #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
     
     env > env.test
 
-Asking for 1 core, 10 minutes, on partiton E5, shared node.
+Asking for 1 core, 500MiB, 10 minutes, on partition E5, shared node.
 
 
 One core, one node exclusive
 ----------------------------
 
-hence, all RAM (of the node).
+hence, all available RAM (of the node).
 
 .. code-block:: bash
 
