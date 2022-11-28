@@ -5,6 +5,7 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --gres=gpu:2
 #SBATCH --cpus-per-gpu=1
+#SBATCH --mem-per-cpu=12G
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
 #
 #SBATCH -o ./%N.%j.%x.out           # output

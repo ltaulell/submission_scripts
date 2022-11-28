@@ -38,4 +38,4 @@ do
     # srun --exclusive means independent tasks, either, it's serial
 done
 
-wait # tell bash/slurm to wait for all sub-tasks (srun) to finish before exit
+wait # tell slurm to wait for all job steps (srun) to finish before exit

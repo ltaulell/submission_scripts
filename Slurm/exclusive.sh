@@ -7,7 +7,8 @@
 #SBATCH --nodes=2                   # -N (2 nodes, exclusive way)
 #SBATCH --exclusive                 # exclusive mode, ie: all 2 nodes will be mine
 
-# this script is dumb, it will reserve 2 nodes, and only one will be used
+# Be aware: this script is *DUMB*, it will reserve 2 nodes, and only one will be used
+# **this is a waste of resources**
 
 env > env-E5.txt
 

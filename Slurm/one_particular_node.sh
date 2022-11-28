@@ -10,6 +10,8 @@
 # SBATCH --nodelist=c6420node[049-060]
 # SBATCH --nodelist=r740bigmem201
 
+# Be aware: doing such request may impact your priority (good or bad)
+
 env > env-E5.txt
 
 ls /scratch/ssd/
