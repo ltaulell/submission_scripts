@@ -6,11 +6,15 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 
 `PSMN <http://www.ens-lyon.fr/PSMN/>`_ is "Pôle Scientifique de Modélisation Numérique", the Computing Center and "MesoCentre" of `École Normale Supérieure de Lyon <http://www.ens-lyon.fr/en/>`_.
 
+.. note::
+    PSMN is not using SGE anymore, we've switched to slurm.
+
+
 .. meta::
-	:date: 2020-04-15
-	:status: documentation
-	:version: $Id: README.rst 1.10 $
-	:licence: SPDX-License-Identifier: BSD-2-Clause
+    :date: 2020-04-15
+    :status: documentation
+    :version: $Id: README.rst 1.11 $
+    :licence: SPDX-License-Identifier: BSD-2-Clause
 
 Tested with ``Sun Grid Engine v6.2u5`` and ``Son of Grid Engine v8.1.9``.
 
@@ -18,7 +22,7 @@ Tested with ``Sun Grid Engine v6.2u5`` and ``Son of Grid Engine v8.1.9``.
 Documentation
 =============
 
-All scripts refer to `PSMN's documentation <http://www.ens-lyon.fr/PSMN/doku.php?id=documentation:accueil>`_ which will always be ahead of this repository.
+All scripts refer to old `PSMN's documentation <http://www.ens-lyon.fr/PSMN/doku.php?id=documentation:accueil>`_.
 
 ``qstat -g c`` on any front server will give an actual queue list.
 
