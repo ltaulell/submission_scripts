@@ -9,7 +9,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 .. meta::
 	:date: 2021-10-29
 	:status: documentation
-	:version: $Id: README.rst 1.14 $
+	:version: $Id: README.rst 1.15 $
 	:licence: SPDX-License-Identifier: BSD-2-Clause
 
 Using ``slurm-wlm 20.11.4``.
@@ -78,7 +78,7 @@ hence, all available RAM (of the node).
     myappli < input > output
 
 
-Asking for 1 core, 10 minutes, E5 partition, 1 node exclusive (this is a waste of resources, do not do that in production).
+Asking for 1 core, 10 minutes, E5 partition, 1 node exclusive (this is a waste of resources, do **not** do that in production).
 
 One core, much RAM, wow
 -----------------------
@@ -90,12 +90,12 @@ One core, much RAM, wow
     #SBATCH --partition=E5
     #SBATCH --cpus-per-task=1           # -n
     #SBATCH --ntasks=1
-    #SBATCH --mem-per-cpu=250G
+    #SBATCH --mem=150G
     #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
     
     myappli < input > output
 
-With this one, some small sequential jobs may also run on the same node, not wasting resources.
+With this one, some small sequential jobs may also run, sharing the same node, not wasting resources.
 
 
 Environment Slurm variables
