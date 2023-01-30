@@ -30,6 +30,6 @@ fi
 # go to scratch, exit script if error
 cd ${SCRATCHDIR} || { echo "cannot cd to ${SCRATCHDIR}"; exit 1; }
 
-# I work in ${SCRATCHDIR}, relative path
-${MYBIN} < input > output
+# I work in ${SCRATCHDIR}, relative path (input is NOT in ${SLURM_JOB_ID}/)
+${MYBIN} < ../input > output
 
