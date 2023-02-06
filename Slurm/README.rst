@@ -28,6 +28,11 @@ Snippets of options (bash scripts)
 
 Submit using ``sbatch test.sh``.
 
+.. note:: WARNING
+
+    Please **NEVER** use ``--mail-type`` with the ``ALL`` flag. It will overload our email servers and get us blacklisted (you included).
+    Use ``BEGIN,END,FAIL`` instead.
+
 
 Simpliest script
 ----------------
