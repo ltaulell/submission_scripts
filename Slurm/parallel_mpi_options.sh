@@ -17,10 +17,16 @@ mkdir -p "${SCRATCHDIR}"
 # there is multiples ways of using multiples MPI
 # added some usefull (sometime) options
 
-# example 1, OpenMPI
-mpirun -np "${SLURM_NTASKS}" -mca btl vader,openib,self ./mybin < input > "${SCRATCHDIR}/output"
+# example 0, OpenMPI 1.8+ (you should'nt use that one anymore)
+# mpirun -np "${SLURM_NTASKS}" -mca btl sm,openib,self ./mybin < input > "${SCRATCHDIR}/output"
 
-# example 2, Intel MPI
+# example 1, OpenMPI 2 and 3
+# mpirun -np "${SLURM_NTASKS}" -mca btl vader,openib,self ./mybin < input > "${SCRATCHDIR}/output"
+
+# example 2, OpenMPI 4 (base debian or PSMN modules)
+mpirun -np "${SLURM_NTASKS}" ./mybin < input > "${SCRATCHDIR}/output"
+
+# example 3, Intel MPI
 # proper PSMN's $USER/.ssh/config is MANDATORY
 mpiexec -n "${SLURM_NPROCS}" -bootstrap ssh ./mybin -restart="${SLURM_SUBMIT_DIR}/input" -scratch="${SCRATCHDIR}"
 
