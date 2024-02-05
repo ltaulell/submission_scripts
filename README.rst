@@ -14,7 +14,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 
 New clusters are running with `Slurm <Slurm>`_.
 
-Old clusters are running with `GridEngine <GridEngine/>`_. 
+Old clusters were running with `GridEngine <GridEngine/>`_. 
 
 
 Documentation
