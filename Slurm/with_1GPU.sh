@@ -4,6 +4,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --gres=gpu:1
+#SBATCH --gpu-bind=verbose,single:1
 #SBATCH --cpus-per-gpu=1
 #SBATCH --mem-per-cpu=12G           # good practice to match GPU mem
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
