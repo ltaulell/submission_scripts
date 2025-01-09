@@ -126,6 +126,8 @@ There's a bunch of available slurm variables, within your job environment:
 +--------------------------+-------------------------------------------------------+
 | $SLURM_NTASKS            | Maximum number of MPI tasks                           |
 +--------------------------+-------------------------------------------------------+
+| $SLURM_JOB_GPUS          | Allocated GPU id                                      |
++--------------------------+-------------------------------------------------------+
 | $SLURM_NTASKS_PER_NODE   | Number of tasks requested per node                    |
 +--------------------------+-------------------------------------------------------+
 | $SLURM_CPUS_ON_NODE      | Number of CPUs on the allocated node                  |
