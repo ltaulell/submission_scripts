@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=test
-#SBATCH --partition=E5
+#SBATCH --partition=Lake-short
 #SBATCH --cpus-per-task=16          # -n
 #SBATCH --ntasks=1
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
@@ -12,7 +12,7 @@
 
 # Be aware: doing such request may impact your priority (good or bad)
 
-env > env-E5.txt
+env > env-Lake-short.txt
 
 ls /scratch/ssd/
 

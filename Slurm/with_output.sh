@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=test
-#SBATCH --partition=E5
+#SBATCH --partition=Lake-short
 #SBATCH --cpus-per-task=1
 #SBATCH --ntasks=1
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
@@ -12,5 +12,5 @@
 # %x = jobname
 # %j = jobid
 
-env > env-E5.txt
+env > env-Lake-short.txt
 

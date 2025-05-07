@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=test
-#SBATCH --partition=E5
+#SBATCH --partition=Lake-short
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
 #SBATCH --exclusive
 #SBATCH --nodes=2

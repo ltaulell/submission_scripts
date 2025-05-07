@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=test
-#SBATCH --partition=E5
+#SBATCH --partition=Lake-short
 #SBATCH --cpus-per-task=1
 #SBATCH --ntasks=1
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
@@ -18,8 +18,8 @@
 MYBIN="${HOME}/bin/myprogram"
 
 # but I want to work in scratch
-# E5 partition, absolute path, including login and job ID, trailing /
-SCRATCHDIR="/scratch/E5N/${USER}/${SLURM_JOB_ID}/"
+# Lake-short partition, absolute path, including login and job ID, trailing /
+SCRATCHDIR="/scratch/Lake/${USER}/${SLURM_JOB_ID}/"
 
 # if it doesn't exist, create
 if [[ ! -d "${SCRATCHDIR}" ]]

@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=test
-#SBATCH --partition=E5
+#SBATCH --partition=Lake-short
 #SBATCH --nodes=2
 #SBATCH --exclusive
 #SBATCH --ntasks-per-node=16
@@ -9,7 +9,7 @@
 
 echo "${SLURM_SUBMIT_DIR}"
 
-SCRATCHDIR="/scratch/E5N/${SLURM_JOB_USER}/${SLURM_JOB_ID}"
+SCRATCHDIR="/scratch/Lake/${SLURM_JOB_USER}/${SLURM_JOB_ID}"
 
 mkdir -p "${SCRATCHDIR}"
 

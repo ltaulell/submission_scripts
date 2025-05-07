@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=scratch-test
-#SBATCH --partition=Cascade,Lake,E5
+#SBATCH --partition=Cascade,Lake
 #SBATCH --cpus-per-task=1
 #SBATCH --ntasks=1
 #SBATCH --mem=100M
@@ -19,10 +19,7 @@ then
 elif [[ -d "/scratch/Lake" ]]
 then
     SCRATCHDIR="/scratch/Lake/${USER}/${JOB_ID}/"
-## E5 partition
-elif [[ -d "/scratch/E5N" ]]
-then
-    SCRATCHDIR="/scratch/E5N/${USER}/${JOB_ID}/"
+
 else
     echo "/scratch not found, cannot create ${SCRATCHDIR}"
     exit 1

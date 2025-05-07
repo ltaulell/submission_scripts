@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=test_matlab
-#SBATCH --partition=E5
+#SBATCH --partition=Lake-short
 #SBATCH --cpus-per-task=16          # -n
 #SBATCH --mem=63G                   # global to node, in GiB
 #SBATCH --ntasks=1

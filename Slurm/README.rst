@@ -53,14 +53,14 @@ Simplest script
 
     #!/bin/bash
     #SBATCH --job-name=test
-    #SBATCH --partition=E5
+    #SBATCH --partition=Lake-short
     #SBATCH --cpus-per-task=1           # -n
     #SBATCH --mem-per-cpu=500           # in MiB
     #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
     
     env > env.test
 
-Asking for 1 core, 500MiB, 10 minutes, on partition E5, shared node.
+Asking for 1 core, 500MiB, 10 minutes, on partition Lake-short, shared node.
 
 
 One core, one node exclusive
@@ -72,7 +72,7 @@ hence, all available RAM (of the node).
 
     #!/bin/bash
     #SBATCH --job-name=test
-    #SBATCH --partition=E5
+    #SBATCH --partition=Lake-short
     #SBATCH --cpus-per-task=1           # -n
     #SBATCH --ntasks=1
     #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
@@ -82,7 +82,7 @@ hence, all available RAM (of the node).
     myappli < input > output
 
 
-Asking for 1 core, 10 minutes, E5 partition, 1 node exclusive (this is a waste of resources, do **not** do that in production).
+Asking for 1 core, 10 minutes, Lake-short partition, 1 node exclusive (this is a waste of resources, do **not** do that in production).
 
 One core, much RAM, wow
 -----------------------
@@ -91,7 +91,7 @@ One core, much RAM, wow
 
     #!/bin/bash
     #SBATCH --job-name=test
-    #SBATCH --partition=E5
+    #SBATCH --partition=Lake-short
     #SBATCH --cpus-per-task=1           # -n
     #SBATCH --ntasks=1
     #SBATCH --mem=150G

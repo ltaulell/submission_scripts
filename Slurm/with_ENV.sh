@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=test
-#SBATCH --partition=E5
+#SBATCH --partition=Lake-short
 #SBATCH --cpus-per-task=1           # one CPU
 #SBATCH --ntasks=1
 #SBATCH --mem=2G                    # 2GiB mem overall

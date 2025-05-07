@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=test_matlab
-#SBATCH --partition=E5-short
+#SBATCH --partition=Lake-short
 #SBATCH --cpus-per-task=1           # -n
 #SBATCH --mem-per-cpu=500           # in MiB
 #SBATCH --ntasks=1
