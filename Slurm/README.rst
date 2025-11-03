@@ -12,7 +12,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 	:version: $Id: README.rst 1.15 $
 	:licence: SPDX-License-Identifier: BSD-2-Clause
 
-Using ``slurm-wlm 20.11.4``.
+Using ``slurm-wlm 24.11``.
 
 
 Documentation
