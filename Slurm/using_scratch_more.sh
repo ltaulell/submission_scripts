@@ -6,7 +6,6 @@
 #SBATCH --mem=100M
 #SBATCH --time=0-0:02:0 # asking for 2mn
 
-
 # check if scratch exist, create or complain
 ## Cascade partition
 if [[ -d "/scratch/Cascade" ]]
@@ -25,7 +24,9 @@ else
     exit 1
 fi
 
-mkdir -p "${SCRATCHDIR}"
+mkdir -p "${SCRATCHDIR:-/emptyvar}"  # won't work if var is empty
+
+cd "${SCRATCHDIR}" || { echo "cannot cd to ${SCRATCHDIR}"; exit 1; }
 
 OUTFILE="${SCRATCHDIR}/${SLURM_JOB_NAME}.${SLURM_JOB_ID}.out"
 

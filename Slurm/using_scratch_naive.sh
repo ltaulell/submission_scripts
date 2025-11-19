@@ -8,7 +8,8 @@
 cd "${SLURM_SUBMIT_DIR}"
 
 # this is a scratch example
-# /!\ ${SLURM_JOB_PARTITION} only works on Master Partitions, not sub-partitions
+# /!\ ${SLURM_JOB_PARTITION} only works on Master Partitions (Lake & Cascade), 
+# not sub-partitions
 
 if [[ -d "/scratch" ]]
 then
@@ -24,6 +25,8 @@ else
     echo "/scratch not found, cannot create SCRATCHDIR"
     exit 1
 fi
+
+cd "${SCRATCHDIR}" || { echo "cannot cd to ${SCRATCHDIR}"; exit 1; }
 
 OUTFILE="${SCRATCHDIR}/${SLURM_JOB_NAME}.${SLURM_JOB_ID}.out"
 
