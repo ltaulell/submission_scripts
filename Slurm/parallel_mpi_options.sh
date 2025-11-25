@@ -23,12 +23,14 @@ mkdir -p "${SCRATCHDIR}" || { echo "cannot create ${SCRATCHDIR}"; exit 1; }
 # example 1, OpenMPI 2 and 3 (you should'nt use that one anymore)
 # mpirun -np "${SLURM_NTASKS}" -mca btl vader,openib,self ./mybin < input > "${SCRATCHDIR}/output"
 
-# example 2, OpenMPI 4 (base debian or PSMN modules, slurm and PMI2/UCX support included)
+# example 2, OpenMPI >4 (base debian or PSMN modules, slurm and PMI2/UCX support included)
 mpirun -np "${SLURM_NTASKS}" ./mybin < input > "${SCRATCHDIR}/output"
 
-# example 3, Intel MPI > 2024
+# example 3, Intel MPI {> 2023b < 2025a} (you should'nt use that one anymore)
 # proper PSMN's $USER/.ssh/config is MANDATORY
 # mpiexec -n "${SLURM_NPROCS}" -bootstrap ssh ./mybin -restart="${SLURM_SUBMIT_DIR}/input" -scratch="${SCRATCHDIR}"
+
+# example 4, Intel MPI > 2025a (with slurm support)
 mpiexec -n "${SLURM_NPROCS}" -bootstrap slurm ./mybin -restart="${SLURM_SUBMIT_DIR}/input" -scratch="${SCRATCHDIR}"
 
 # don't forget to cleanup/erase "${SCRATCHDIR}" after successfull run
