@@ -2,7 +2,7 @@
 PSMN Slurm submission scripts
 =============================
 
-TL;DR: bunch of submission scripts, some simple, some over-complicated, used in `PSMN <http://www.ens-lyon.fr/PSMN/>`_ at ENS de Lyon.
+TL;DR: bunch of example submission scripts, some simple, some over-complicated, used in `PSMN <http://www.ens-lyon.fr/PSMN/>`_ at ENS de Lyon. Any script need to be adapted to real conditions and needs.
 
 `PSMN <http://www.ens-lyon.fr/PSMN/>`_ is "Pôle Scientifique de Modélisation Numérique", the Computing Center and "MesoCentre" of `École Normale Supérieure de Lyon <http://www.ens-lyon.fr/en/>`_.
 
@@ -18,7 +18,7 @@ Using ``slurm-wlm 24.11``.
 Documentation
 =============
 
-All scripts refer to `PSMN's documentation <http://www.ens-lyon.fr/PSMN/doku.php?id=documentation:accueil>`_ which will always be ahead of this repository.
+All example scripts refer to `PSMN's documentation <http://www.ens-lyon.fr/PSMN/doku.php?id=documentation:accueil>`_ which will always be ahead of this repository.
 
 ``sinfo -l`` or ``sinfo --summarize`` on any front server will give an **actual partition status and names**.
 

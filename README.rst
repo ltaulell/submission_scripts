@@ -2,7 +2,7 @@
 PSMN submission scripts
 =======================
 
-TL;DR: bunch of submission scripts, some simple, some over-complicated, used in `PSMN <http://www.ens-lyon.fr/PSMN/>`_ at ENS de Lyon.
+TL;DR: bunch of example submission scripts, some simple, some over-complicated, used in `PSMN <http://www.ens-lyon.fr/PSMN/>`_ at ENS de Lyon.
 
 `PSMN <http://www.ens-lyon.fr/PSMN/>`_ is "Pôle Scientifique de Modélisation Numérique", the Computing Center and "MesoCentre" of `École Normale Supérieure de Lyon <http://www.ens-lyon.fr/en/>`_.
 
