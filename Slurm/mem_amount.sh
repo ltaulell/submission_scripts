@@ -6,7 +6,8 @@
 #SBATCH --time=0-00:10:00           # day-hours:minutes:seconds
 #SBATCH --mem-per-cpu=500           # in MiB
 #SBATCH --mem=500                   # global to node, in MiB
-# SBATCH --mem=2G                   # global to node, in GiB, ignored
+## SBATCH --mem=2G                  # global to node, in GiB, ignored
+## SBATCH --mem=0                   # all available memory. BEWARE: ALL nodes match this one, ALL of them.
 
 env > env-Lake-short.txt
 
