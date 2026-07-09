@@ -7,7 +7,7 @@ TL;DR: bunch of submission scripts, some simple, some over-complicated, used in 
 `PSMN <http://www.ens-lyon.fr/PSMN/>`_ is "Pôle Scientifique de Modélisation Numérique", the Computing Center and "MesoCentre" of `École Normale Supérieure de Lyon <http://www.ens-lyon.fr/en/>`_.
 
 .. note::
-    PSMN is not using SGE anymore, we've switched to slurm.
+    **PSMN is not using SGE anymore, we've switched to slurm.**
 
 
 .. meta::
